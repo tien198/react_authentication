@@ -1,12 +1,11 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
+import EventItem from '../components/EventItem';
 
-function EventDetail(props) {
+function EventDetail() {
     const { id } = useParams()
     return (
-        <h1>
-            EventDetail {id}
-        </h1>
+        <EventItem event={ } />
     );
 }
 
