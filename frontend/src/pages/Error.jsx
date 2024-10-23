@@ -9,6 +9,7 @@ function Error(props) {
     let message = 'Something went wrong!'
     console.log(error);
 
+
     if (error.status === 500)
         message = error.data.message
     // message = JSON.parse(error.data).message

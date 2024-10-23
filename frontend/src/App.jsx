@@ -1,4 +1,4 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { createBrowserRouter, json, redirect, RouterProvider } from 'react-router-dom'
 import Root from './pages/Root';
 import Home from './pages/Home';
 import EventsRoot from './pages/EventsRoot';
@@ -37,12 +37,19 @@ const router = createBrowserRouter([
             action: async ({ request, params }) => {
               const formData = await request.formData()
               const data = Object.fromEntries(formData.entries())
-              console.log(data);
 
-
-              await fetch('http://localhost:8080/events', {
-                method: 'POST'
+              const response = await fetch('http://localhost:8080/events', {
+                method: 'POST',
+                headers: {
+                  'Content-type': 'application/json'
+                },
+                body: JSON.stringify(data)
               });
+
+              if (!response.ok)
+                return json({ message: 'could not post event' }, { status: 500 })
+
+              return redirect('/events')
             }
           },
         ]
