@@ -3,10 +3,11 @@ import Root from './pages/Root';
 import Home from './pages/Home';
 import EventsRoot from './pages/EventsRoot';
 import Events, { loader as eventsLoader } from './pages/Events';
-import EventDetail, { loader as eventDetailLoader } from './pages/EventDetail';
+import EventDetail, { deleteAction, loader as eventDetailLoader } from './pages/EventDetail';
 import NewEvent from './pages/NewEvent';
 import EditEvent from './pages/EditEvent';
 import Error from './pages/Error';
+import { action as eventManipulationAction } from './components/EventForm';
 
 const router = createBrowserRouter([
   {
@@ -28,29 +29,17 @@ const router = createBrowserRouter([
               {
                 index: true,
                 element: <EventDetail />,
+                action: deleteAction
               },
-              { path: 'edit', element: <EditEvent /> }
+              {
+                path: 'edit', element: <EditEvent />,
+                action: eventManipulationAction
+              }
             ]
           },
           {
             path: 'new', element: <NewEvent />,
-            action: async ({ request, params }) => {
-              const formData = await request.formData()
-              const data = Object.fromEntries(formData.entries())
-
-              const response = await fetch('http://localhost:8080/events', {
-                method: 'POST',
-                headers: {
-                  'Content-type': 'application/json'
-                },
-                body: JSON.stringify(data)
-              });
-
-              if (!response.ok)
-                return json({ message: 'could not post event' }, { status: 500 })
-
-              return redirect('/events')
-            }
+            action: eventManipulationAction
           },
         ]
       },

@@ -1,16 +1,11 @@
 import React from 'react';
 import EventForm from '../components/EventForm';
+import { json, redirect } from 'react-router-dom';
 
 function NewEvent(props) {
     return (
-        <EventForm />
+        <EventForm method='POST' />
     );
 }
 
 export default NewEvent;
-
-export async function action({ request, params }) {
-    const data = request.formData
-
-
-}
