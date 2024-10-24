@@ -19,7 +19,7 @@ function Events() {
 
 export default Events;
 
-async function loaderEvent() {
+async function eventsLoader() {
     const response = await fetch('http://localhost:8080/events');
 
     if (!response.ok) {
@@ -33,6 +33,6 @@ async function loaderEvent() {
 
 export function loader() {
     return defer({
-        events: loaderEvent()
+        events: eventsLoader()
     })
 }
