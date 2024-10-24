@@ -7,7 +7,7 @@ function Error(props) {
     const error = useRouteError()
     let title = 'An error has occurred!'
     let message = 'Something went wrong!'
-    console.log(error);
+    console.error(error);
 
 
     if (error.status === 500)

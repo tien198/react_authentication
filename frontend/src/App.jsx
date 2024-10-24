@@ -1,4 +1,5 @@
 import { createBrowserRouter, json, redirect, RouterProvider } from 'react-router-dom'
+
 import Root from './pages/Root';
 import Home from './pages/Home';
 import EventsRoot from './pages/EventsRoot';
@@ -8,6 +9,7 @@ import NewEvent from './pages/NewEvent';
 import EditEvent from './pages/EditEvent';
 import Error from './pages/Error';
 import { action as eventManipulationAction } from './components/EventForm';
+import NewsletterPage, { action as newsletterAction } from './pages/Newsletter';
 
 const router = createBrowserRouter([
   {
@@ -17,10 +19,14 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <Home /> },
       {
-        path: 'events/',
+        path: 'events',
         element: <EventsRoot />,
         children: [
-          { index: true, element: <Events />, loader: eventsLoader },
+          {
+            index: true,
+            element: <Events />,
+            loader: eventsLoader
+          },
           {
             path: ':id',
             id: 'event-detail',
@@ -32,7 +38,8 @@ const router = createBrowserRouter([
                 action: deleteAction
               },
               {
-                path: 'edit', element: <EditEvent />,
+                path: 'edit',
+                element: <EditEvent />,
                 action: eventManipulationAction
               }
             ]
@@ -42,6 +49,11 @@ const router = createBrowserRouter([
             action: eventManipulationAction
           },
         ]
+      },
+      {
+        path: 'newsletter',
+        element: <NewsletterPage />,
+        action: newsletterAction,
       },
     ]
   }
