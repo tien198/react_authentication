@@ -5,12 +5,12 @@ import Home from './pages/Home';
 import EventsRoot from './pages/EventsRoot';
 import Events, { loader as eventsLoader } from './pages/Events';
 import EventDetail, { deleteAction, loader as eventDetailLoader } from './pages/EventDetail';
-import NewEvent from './pages/NewEvent';
+import NewEvent, { action as eventManipulationAction } from './pages/NewEvent';
 import EditEvent from './pages/EditEvent';
 import Error from './pages/Error';
-import { action as eventManipulationAction } from './components/EventForm';
 import NewsletterPage, { action as newsletterAction } from './pages/Newsletter';
-import AuthenticationPage from './pages/Authentication';
+import AuthenticationPage, { action as registerAction } from './pages/Authentication';
+import { SERVER_BASE_URL } from './ulties/http';
 
 const router = createBrowserRouter([
   {
@@ -53,7 +53,8 @@ const router = createBrowserRouter([
       },
       {
         path: 'authen',
-        element: <AuthenticationPage />
+        element: <AuthenticationPage />,
+        action: registerAction
       },
       {
         path: 'newsletter',

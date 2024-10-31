@@ -9,7 +9,7 @@ const navLinks = [
   ['/', 'Home'],
   ['/events', 'Events'],
   ['/newsletter', 'Newsletter'],
-  ['/authen', 'Authenticate'],
+  ['/authen?mode=login', 'Authenticate'],
 ]
 
 function MainNavigation() {
@@ -19,7 +19,7 @@ function MainNavigation() {
         <ul className={classes.list}>
           {
             navLinks.map(li =>
-              <li>
+              <li key={li[0]}>
                 <NavLink
                   to={li[0]}
                   className={({ isActive }) =>

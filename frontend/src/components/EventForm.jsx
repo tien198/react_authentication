@@ -1,6 +1,7 @@
 import { Form, redirect, useActionData, useNavigate, useNavigation } from 'react-router-dom';
 
 import classes from './EventForm.module.css';
+import { SERVER_BASE_URL } from '../ulties/http';
 
 function EventForm({ method, event }) {
   const resData = useActionData()
@@ -54,34 +55,3 @@ function EventForm({ method, event }) {
 export default EventForm;
 
 
-
-export async function action({ request, params }) {
-  const { method } = request
-
-  const formData = await request.formData()
-  const data = Object.fromEntries(formData.entries())
-
-  let actionUrl = 'http://localhost:8080/events'
-
-  if (method === 'PATCH') {
-    const { id = '' } = params
-    actionUrl = 'http://localhost:8080/events/' + id
-  }
-
-  const response = await fetch(actionUrl, {
-    method: method,
-    headers: {
-      'Content-type': 'application/json'
-    },
-    body: JSON.stringify(data)
-  });
-
-  if (response.status === 422) {
-    return response
-  }
-
-  if (!response.ok)
-    return json({ message: 'could not post event' }, { status: 500 })
-
-  return redirect('/events')
-}

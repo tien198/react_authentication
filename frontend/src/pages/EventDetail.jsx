@@ -2,6 +2,7 @@ import React, { Suspense } from 'react';
 import { Await, defer, json, redirect, useRouteLoaderData } from 'react-router-dom';
 import EventItem from '../components/EventItem';
 import EventsList from '../components/EventsList';
+import { SERVER_BASE_URL } from '../ulties/http';
 
 function EventDetail() {
     const data = useRouteLoaderData('event-detail')
@@ -27,7 +28,7 @@ export default EventDetail;
 
 
 async function eventLoader(id) {
-    const response = await fetch(`http://localhost:8080/events/${id}`);
+    const response = await fetch(`${SERVER_BASE_URL}/events/${id}`);
     if (!response.ok)
         throw json({ message: `Fail to fetch event with id "${id}"` }, { status: 500 })
     const eventRes = await response.json()

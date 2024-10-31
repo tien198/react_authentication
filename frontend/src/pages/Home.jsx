@@ -2,9 +2,10 @@ import React from 'react';
 
 function Home(props) {
     return (
-        <h1>
-            Home
-        </h1>
+        <div className='text-center'>
+            <h1>Welcome!</h1>
+            <p>Browse all our amazing events!</p>
+        </div>
     );
 }
 
