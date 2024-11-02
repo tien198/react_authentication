@@ -2,6 +2,7 @@ import React from 'react';
 import EventForm from '../components/EventForm';
 import { json, redirect } from 'react-router-dom';
 import { SERVER_BASE_URL } from '../ulties/http';
+import { getAuthToken } from '../ulties/auth';
 
 function NewEvent(props) {
     return (
@@ -28,7 +29,8 @@ export async function action({ request, params }) {
     const response = await fetch(actionUrl, {
         method: method,
         headers: {
-            'Content-type': 'application/json'
+            'Content-type': 'application/json',
+            'authorization': 'bearer ' + getAuthToken()
         },
         body: JSON.stringify(data)
     });

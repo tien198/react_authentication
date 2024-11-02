@@ -17,7 +17,7 @@ router.post('/signup', async (req, res, next) => {
       if (existingUser) {
         errors.email = 'Email exists already.';
       }
-    } catch (error) {}
+    } catch (error) { }
   }
 
   if (!isValidText(data.password, 6)) {
@@ -50,7 +50,9 @@ router.post('/login', async (req, res) => {
   try {
     user = await get(email);
   } catch (error) {
-    return res.status(401).json({ message: 'Authentication failed.' });
+    return res.status(401).json({
+      errors: { message: 'Authentication failed.' }
+    });
   }
 
   const pwIsValid = await isValidPassword(password, user.password);

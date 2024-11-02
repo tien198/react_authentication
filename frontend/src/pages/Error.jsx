@@ -7,16 +7,22 @@ function Error(props) {
     const error = useRouteError()
     let title = 'An error has occurred!'
     let message = 'Something went wrong!'
-    // console.error(error);
+    console.error(error);
 
 
-    if (error.status === 500)
-        message = error.data.message
+
     // message = JSON.parse(error.data).message
     if (error.status === 404) {
         title = 'Not Found!'
         message = 'Could not find resoure or page.'
     }
+    else if (error.status === 401) {
+        title = 'Not Authorize!'
+        message = 'You do not have permission for this resoure.'
+        // message = error.data.message
+    }
+    else if (error.status === 500)
+        message = error.data.message
 
     return (
         <>

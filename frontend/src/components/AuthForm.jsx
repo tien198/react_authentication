@@ -24,6 +24,8 @@ function AuthForm() {
         <label htmlFor="image">Password</label>
         <input id="password" type="password" name="password" required />
         {errors && errors.password && <span className='text-primary-800'>{errors.password}</span>}
+        {errors && errors.credentials && <span className='text-primary-800'>{errors.credentials}</span>}
+        {errors && errors.message && <span className='text-primary-800'>{errors.message}</span>}
       </p>
       <div className={classes.actions}>
         <Link to={`?mode=${isLogin ? 'signup' : 'login'}`}>

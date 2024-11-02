@@ -10,13 +10,16 @@ import EditEvent from './pages/EditEvent';
 import Error from './pages/Error';
 import NewsletterPage, { action as newsletterAction } from './pages/Newsletter';
 import AuthenticationPage, { action as registerAction } from './pages/Authentication';
-import { SERVER_BASE_URL } from './ulties/http';
+import { action as logoutAction } from './pages/Logout';
+import { tokenLoader } from './ulties/auth';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <Root />,
-    // errorElement: <Error />,
+    id: 'root',
+    loader: tokenLoader,
+    errorElement: <Error />,
     children: [
       { index: true, element: <Home /> },
       {
@@ -61,6 +64,10 @@ const router = createBrowserRouter([
         element: <NewsletterPage />,
         action: newsletterAction,
       },
+      {
+        path: 'logout',
+        action: logoutAction
+      }
     ]
   }
 ])
