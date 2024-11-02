@@ -1,1 +1,19 @@
-{"events":[{"title":"tien","image":"https://cdn2.fptshop.com.vn/unsafe/Uploads/images/tin-tuc/171181/Originals/event-la-gi%20(4).jpg","date":"2024-10-31","description":"tien is the best","id":"37a6b151-76f2-4f34-bda9-5652cf3032f5"},{"id":"e1","title":"A dummy event","date":"2023-02-22","image":"https://blog.hubspot.de/hubfs/Germany/Blog_images/Optimize_Marketing%20Events%20DACH%202021.jpg","description":"Join this amazing event and connect with fellow developers."}],"users":[{"email":"fawals98@gmail.com","password":"$2a$12$rIrRm7hVq0EKiXdeABzr0e4CIbzYE7EaplOGKztvo.KFadzXUvRpW","id":"75f724d0-3340-495a-8d63-83e015623e6a"},{"email":"tienvn998@gmail.com","password":"$2a$12$K8w2RLhiK3AMHPJLC.6b7uiPNCLssWv6zAsEMH2yNl9bCfodC752m","id":"985d3c6f-f6c0-475f-88e9-f56ffd067ac9"}]}
+{
+    "events": [
+        {
+            "title": "tien",
+            "image": "https://cdn2.fptshop.com.vn/unsafe/Uploads/images/tin-tuc/171181/Originals/event-la-gi%20(4).jpg",
+            "date": "2024-10-31",
+            "description": "tien is the best",
+            "id": "37a6b151-76f2-4f34-bda9-5652cf3032f5"
+        },
+        {
+            "id": "e1",
+            "title": "A dummy event",
+            "date": "2023-02-22",
+            "image": "https://blog.hubspot.de/hubfs/Germany/Blog_images/Optimize_Marketing%20Events%20DACH%202021.jpg",
+            "description": "Join this amazing event and connect with fellow developers."
+        }
+    ],
+    "users": []
+}
