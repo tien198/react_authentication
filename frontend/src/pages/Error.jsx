@@ -18,7 +18,7 @@ function Error(props) {
     }
     else if (error.status === 401) {
         title = 'Not Authorize!'
-        message = 'You do not have permission for this resoure.'
+        message = error.data.message || 'You do not have permission for this resoure.'
         // message = error.data.message
     }
     else if (error.status === 500)

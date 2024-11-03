@@ -11,7 +11,7 @@ import Error from './pages/Error';
 import NewsletterPage, { action as newsletterAction } from './pages/Newsletter';
 import AuthenticationPage, { action as registerAction } from './pages/Authentication';
 import { action as logoutAction } from './pages/Logout';
-import { tokenLoader } from './ulties/auth';
+import { isAuthenLoader, tokenLoader } from './ulties/auth';
 
 const router = createBrowserRouter([
   {
@@ -62,6 +62,7 @@ const router = createBrowserRouter([
       {
         path: 'newsletter',
         element: <NewsletterPage />,
+        loader: isAuthenLoader,
         action: newsletterAction,
       },
       {
