@@ -9,7 +9,6 @@ const navLinks = [
   ['/', 'Home'],
   ['/events', 'Events'],
   ['/newsletter', 'Newsletter'],
-  [,],
 ]
 
 function MainNavigation() {
@@ -50,9 +49,9 @@ function MainNavigation() {
 
           {
             token && <li>
-              <fetcher.Form action='/logout' method='post'>
+              <Form action='/logout' method='post'>
                 <button>Logout</button>
-              </fetcher.Form>
+              </Form>
             </li>
           }
         </ul>
